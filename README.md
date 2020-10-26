@@ -13,7 +13,7 @@ Vad flaggorna gör:
     - `-m32` - 32bitars kompilering
     - `-fno-stack-protector` - stäng av stack protection :)
     - `-z execstack` - stäng av no-exec-flaggor
-    - `-no-pie` - stäng av "position-independent executable"
+    - `-fno-pie` - stäng av "position-independent executable"
     - `-fno-pic` - stäng av "position-independent code"
 
 För att kunna köra behöver också ASLR stängas av:
@@ -32,7 +32,7 @@ Förhållandet mellan adresserna motsvarar också storleken på våra arrays
 Visa buffer-overruns
 
 ```sh
-$ gcc -m32 -fno-stack-protector -no-pie -fno-pic -z execstack -mpreferred-stack-boundary=2 -o ex2 ex2.c
+$ gcc -m32 -fno-stack-protector -fno-pie -fno-pic -z execstack -mpreferred-stack-boundary=2 -o ex2 ex2.c
 $ ./ex2 $(python -c 'print "A"*51')
 ```
 
